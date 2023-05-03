@@ -1,9 +1,6 @@
 package com.tienda.musica.writers;
 
-import com.tienda.musica.exceptions.*;
 import com.tienda.musica.model.*;
-
-import java.io.IOException;
 
 public class Persistencia {
 
@@ -16,44 +13,6 @@ public class Persistencia {
      * Ruta del archivo serializado XML del modelo
      */
     public static final String RUTA_ARCHIVO_MODELO_CASA_XML = "C:\\td\\persistencia\\model.xml";
-
-    /**
-     * Metodo para iniciar sesion
-     * 
-     * @param usuario     Usuario de la aplicacion
-     * @param contrasenia Contrasenia de la aplicacion
-     * @return Usuario logueado
-     * @throws IOException           Excepcion que se presenta si se presenta
-     *                               errores al manipular el archivo
-     * @throws UserNotFoundException En caso de que el usuario no sea encontrado
-     */
-    public static User iniciarSesion(String usuario, String contrasenia, Tienda tienda)
-            throws IOException, DataNotFoundException {
-        if (validarUsuario(usuario, contrasenia, tienda) != null) {
-            return validarUsuario(usuario, contrasenia, tienda);
-        } else {
-            throw new DataNotFoundException("Combinacion erronea");
-        }
-    }
-
-    /**
-     * Metodo privado para validar un usuario existe
-     * 
-     * @param usuario     Usuario de la aplicacion
-     * @param contrasenia Contrasenia de la aplicacion
-     * @return Usuario logueado
-     * @throws IOException Excepcion que se presenta si se presenta errores al
-     *                     manipular el archivo
-     */
-    private static User validarUsuario(String usuario, String contrasenia, Tienda tienda) throws IOException {
-        // for (User usuarioAux : usuarios) {
-        // if (usuarioAux.getUsuario().equalsIgnoreCase(usuario)
-        // && usuarioAux.getContrasenia().equalsIgnoreCase(contrasenia)) {
-        // return usuarioAux;
-        // }
-        // }
-        return null;
-    }
 
     /**
      * Metodo para cargar la tienda del archivo binario

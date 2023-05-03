@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="494.0" prefWidth="1060.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tienda.musica.controllers.MainViewController">
+   <children>
+      <Button fx:id="agregarArtistaButton" layoutX="828.0" layoutY="282.0" mnemonicParsing="false" onAction="#onActionAgregarArtista" prefHeight="38.0" prefWidth="166.0" text="Agregar Artista">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="eliminarButton" layoutX="848.0" layoutY="419.0" mnemonicParsing="false" onAction="#onActionEliminar" prefHeight="37.0" prefWidth="125.0" text="Eliminar">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <TableView fx:id="tableCanciones" layoutX="19.0" layoutY="12.0" prefHeight="465.0" prefWidth="734.0">
+        <columns>
+            <TableColumn fx:id="caratulaColumn" prefWidth="135.86595916748047" text="Caratula" />
+          <TableColumn fx:id="nombreColumn" prefWidth="130.870849609375" text="Nombre" />
+          <TableColumn fx:id="albumColumn" prefWidth="89.91131591796875" text="Album" />
+            <TableColumn fx:id="anioColumn" prefWidth="75.0" text="Año Publicacion" />
+            <TableColumn fx:id="duracionColumn" prefWidth="75.0" text="Duracion" />
+            <TableColumn fx:id="generoColumn" prefWidth="75.0" text="Genero" />
+            <TableColumn fx:id="urlColumn" prefWidth="149.85215398521154" text="URL" />
+        </columns>
+      </TableView>
+      <TextField fx:id="textFieldBuscar" layoutX="804.0" layoutY="39.0" onKeyTyped="#onKeyTypedFiltro" prefHeight="37.0" prefWidth="214.0" promptText="Filtrar Cancion" />
+      <Button fx:id="agregarCancionButton" layoutX="828.0" layoutY="354.0" mnemonicParsing="false" onAction="#onActionAgregarCancion" prefHeight="38.0" prefWidth="166.0" text="Agregar Cancion">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

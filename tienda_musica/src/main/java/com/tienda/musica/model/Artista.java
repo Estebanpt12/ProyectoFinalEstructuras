@@ -3,12 +3,15 @@ package com.tienda.musica.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.tienda.musica.model.lists.ListaDoblementeEnlazadaCanciones;
+
 public class Artista implements Serializable {
 
     private String codigo;
     private String nombre;
     private String nacionalidad;
     private boolean esArtista;
+    private ListaDoblementeEnlazadaCanciones listaCanciones;
 
     public Artista() {
     }
@@ -18,6 +21,7 @@ public class Artista implements Serializable {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
         this.esArtista = esArtista;
+        this.listaCanciones = new ListaDoblementeEnlazadaCanciones();
     }
 
     public String getCodigo() {
@@ -69,6 +73,14 @@ public class Artista implements Serializable {
     public Artista nacionalidad(String nacionalidad) {
         setNacionalidad(nacionalidad);
         return this;
+    }
+
+    public ListaDoblementeEnlazadaCanciones getListaCanciones() {
+        return this.listaCanciones;
+    }
+
+    public void setListaCanciones(ListaDoblementeEnlazadaCanciones listaCanciones) {
+        this.listaCanciones = listaCanciones;
     }
 
     public Artista esArtista(boolean esArtista) {

@@ -1,6 +1,5 @@
 package com.tienda.musica.model;
 
-import java.io.File;
 import java.io.Serializable;
 import java.time.LocalTime;
 import java.util.Objects;
@@ -10,7 +9,7 @@ public class Cancion implements Serializable {
     private String codigo;
     private String nombre;
     private String nombreAlbum;
-    private File caratula;
+    private String caratula;
     private int anio;
     private LocalTime duracion;
     private String genero;
@@ -19,7 +18,7 @@ public class Cancion implements Serializable {
     public Cancion() {
     }
 
-    public Cancion(String codigo, String nombre, String nombreAlbum, File caratula, int anio, LocalTime duracion,
+    public Cancion(String codigo, String nombre, String nombreAlbum, String caratula, int anio, LocalTime duracion,
             String genero, String url) {
         this.codigo = codigo;
         this.nombre = nombre;
@@ -55,11 +54,11 @@ public class Cancion implements Serializable {
         this.nombreAlbum = nombreAlbum;
     }
 
-    public File getCaratula() {
+    public String getCaratula() {
         return this.caratula;
     }
 
-    public void setCaratula(File caratula) {
+    public void setCaratula(String caratula) {
         this.caratula = caratula;
     }
 
