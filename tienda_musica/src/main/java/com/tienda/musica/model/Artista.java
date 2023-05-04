@@ -3,20 +3,23 @@ package com.tienda.musica.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.tienda.musica.exceptions.DataNotFoundException;
 import com.tienda.musica.model.lists.ListaDoblementeEnlazadaCanciones;
+import com.tienda.musica.utils.Formatter;
 
 public class Artista implements Serializable {
 
-    private String codigo;
+    private int codigo;
     private String nombre;
     private String nacionalidad;
     private boolean esArtista;
     private ListaDoblementeEnlazadaCanciones listaCanciones;
+    private int sizeCanciones;
 
     public Artista() {
     }
 
-    public Artista(String codigo, String nombre, String nacionalidad, boolean esArtista) {
+    public Artista(int codigo, String nombre, String nacionalidad, boolean esArtista) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
@@ -24,11 +27,11 @@ public class Artista implements Serializable {
         this.listaCanciones = new ListaDoblementeEnlazadaCanciones();
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return this.codigo;
     }
 
-    public void setCodigo(String codigo) {
+    public void setCodigo(int codigo) {
         this.codigo = codigo;
     }
 
@@ -56,11 +59,19 @@ public class Artista implements Serializable {
         return this.esArtista;
     }
 
+    public int getSizeCanciones() {
+        return this.sizeCanciones;
+    }
+
+    public void setSizeCanciones(int sizeCanciones) {
+        this.sizeCanciones = sizeCanciones;
+    }
+
     public void setEsArtista(boolean esArtista) {
         this.esArtista = esArtista;
     }
 
-    public Artista codigo(String codigo) {
+    public Artista codigo(int codigo) {
         setCodigo(codigo);
         return this;
     }
@@ -88,6 +99,17 @@ public class Artista implements Serializable {
         return this;
     }
 
+    public void agregarCancion(String nombre, String nombreAlbum, String caratula, int anio, String duracion,
+            String genero, String url) {
+        listaCanciones.add(sizeCanciones, new Cancion(String.valueOf(sizeCanciones), nombre, nombreAlbum, caratula,
+                anio, Formatter.formatTime(duracion), genero, url));
+        sizeCanciones += 1;
+    }
+
+    public Cancion borrarCancion(String nombre) throws DataNotFoundException {
+        return listaCanciones.delete(nombre);
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == this)
@@ -99,4 +121,16 @@ public class Artista implements Serializable {
         return Objects.equals(codigo, artista.codigo) && Objects.equals(nombre, artista.nombre)
                 && Objects.equals(nacionalidad, artista.nacionalidad) && esArtista == artista.esArtista;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+                " codigo='" + getCodigo() + "'" +
+                ", nombre='" + getNombre() + "'" +
+                ", nacionalidad='" + getNacionalidad() + "'" +
+                ", esArtista='" + isEsArtista() + "'" +
+                ", listaCanciones='" + getListaCanciones() + "'" +
+                "}";
+    }
+
 }

@@ -15,56 +15,56 @@ public class Persistencia {
     public static final String RUTA_ARCHIVO_MODELO_CASA_XML = "C:\\td\\persistencia\\model.xml";
 
     /**
-     * Metodo para cargar la tienda del archivo binario
+     * Metodo para cargar la arbolBinario del archivo binario
      * 
-     * @return tienda
+     * @return arbolBinario
      */
-    public static Tienda cargarRecursoTiendaBinario() {
-        Tienda tienda = null;
+    public static ArbolBinario cargarRecursoArbolBinarioBinario() {
+        ArbolBinario arbolBinario = null;
         try {
-            tienda = (Tienda) ArchivoUtil.cargarRecursoSerializado(RUTA_ARCHIVO_MODELO_TIENDA_BINARIO);
+            arbolBinario = (ArbolBinario) ArchivoUtil.cargarRecursoSerializado(RUTA_ARCHIVO_MODELO_TIENDA_BINARIO);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return tienda;
+        return arbolBinario;
     }
 
     /**
-     * Metodo para guardar la tienda en binario
+     * Metodo para guardar la arbolBinario en binario
      * 
-     * @param tienda tienda a guardar
+     * @param arbolBinario arbolBinario a guardar
      */
-    public static void guardarRecursoTiendaBinario(Tienda tienda) {
+    public static void guardarRecursoArbolBinarioBinario(ArbolBinario arbolBinario) {
         try {
-            ArchivoUtil.salvarRecursoSerializado(RUTA_ARCHIVO_MODELO_TIENDA_BINARIO, tienda);
+            ArchivoUtil.salvarRecursoSerializado(RUTA_ARCHIVO_MODELO_TIENDA_BINARIO, arbolBinario);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * Metodo para cargar la tienda del archivo XML
+     * Metodo para cargar la arbolBinario del archivo XML
      * 
-     * @return tienda
+     * @return arbolBinario
      */
-    public static Tienda cargarRecursoCasaXML() {
-        Tienda tienda = null;
+    public static ArbolBinario cargarRecursoCasaXML() {
+        ArbolBinario arbolBinario = null;
         try {
-            tienda = (Tienda) ArchivoUtil.cargarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_CASA_XML);
+            arbolBinario = (ArbolBinario) ArchivoUtil.cargarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_CASA_XML);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return tienda;
+        return arbolBinario;
     }
 
     /**
-     * Metodo para guardar la tienda en XML
+     * Metodo para guardar la arbolBinario en XML
      * 
-     * @param subastasQuindio tienda a guardar
+     * @param subastasQuindio arbolBinario a guardar
      */
-    public static void guardarRecursoCasaXML(Tienda tienda) {
+    public static void guardarRecursoCasaXML(ArbolBinario arbolBinario) {
         try {
-            ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_CASA_XML, tienda);
+            ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_CASA_XML, arbolBinario);
         } catch (Exception e) {
             e.printStackTrace();
         }

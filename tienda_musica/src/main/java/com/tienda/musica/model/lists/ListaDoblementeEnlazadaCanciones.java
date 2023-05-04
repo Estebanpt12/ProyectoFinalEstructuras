@@ -1,23 +1,22 @@
 package com.tienda.musica.model.lists;
 
+import java.io.Serializable;
+
+import com.tienda.musica.exceptions.DataNotFoundException;
 import com.tienda.musica.model.Cancion;
+import com.tienda.musica.model.nodos.NodoListadoble;
 
-public class ListaDoblementeEnlazadaCanciones {
+public class ListaDoblementeEnlazadaCanciones implements Serializable {
 
-    class Nodo {
-        Cancion info;
-        Nodo ant, sig;
-    }
-
-    private Nodo raiz;
+    private NodoListadoble raiz;
 
     public ListaDoblementeEnlazadaCanciones() {
         raiz = null;
     }
 
-    void add(int pos, Cancion x) {
+    public void add(int pos, Cancion x) {
         if (pos <= cantidad() + 1) {
-            Nodo nuevo = new Nodo();
+            NodoListadoble nuevo = new NodoListadoble();
             nuevo.info = x;
             if (pos == 1) {
                 nuevo.sig = raiz;
@@ -25,7 +24,7 @@ public class ListaDoblementeEnlazadaCanciones {
                     raiz.ant = nuevo;
                 raiz = nuevo;
             } else if (pos == cantidad() + 1) {
-                Nodo reco = raiz;
+                NodoListadoble reco = raiz;
                 while (reco.sig != null) {
                     reco = reco.sig;
                 }
@@ -33,10 +32,10 @@ public class ListaDoblementeEnlazadaCanciones {
                 nuevo.ant = reco;
                 nuevo.sig = null;
             } else {
-                Nodo reco = raiz;
+                NodoListadoble reco = raiz;
                 for (int f = 1; f <= pos - 2; f++)
                     reco = reco.sig;
-                Nodo siguiente = reco.sig;
+                NodoListadoble siguiente = reco.sig;
                 reco.sig = nuevo;
                 nuevo.ant = reco;
                 nuevo.sig = siguiente;
@@ -54,13 +53,13 @@ public class ListaDoblementeEnlazadaCanciones {
                 if (raiz != null)
                     raiz.ant = null;
             } else {
-                Nodo reco;
+                NodoListadoble reco;
                 reco = raiz;
                 for (int f = 1; f <= pos - 2; f++)
                     reco = reco.sig;
-                Nodo prox = reco.sig;
+                NodoListadoble prox = reco.sig;
                 reco.sig = prox.sig;
-                Nodo siguiente = prox.sig;
+                NodoListadoble siguiente = prox.sig;
                 if (siguiente != null)
                     siguiente.ant = reco;
                 informacion = prox.info;
@@ -70,18 +69,41 @@ public class ListaDoblementeEnlazadaCanciones {
             return null;
     }
 
-    public void delete(int pos) {
+    public Cancion delete(String nombre) throws DataNotFoundException {
+        NodoListadoble reco = raiz;
+        int i = 1;
+        while (reco != null) {
+            if (reco.info.getNombre().equals(nombre)) {
+                delete(i);
+                return reco.info;
+            }
+            i += 1;
+            reco = reco.sig;
+        }
+        throw new DataNotFoundException("Cancion no encontrada");
+
+    }
+
+    public NodoListadoble getRaiz() {
+        return this.raiz;
+    }
+
+    public void setRaiz(NodoListadoble raiz) {
+        this.raiz = raiz;
+    }
+
+    private void delete(int pos) {
         if (pos <= cantidad()) {
             if (pos == 1) {
                 raiz = raiz.sig;
                 if (raiz != null)
                     raiz.ant = null;
             } else {
-                Nodo reco;
+                NodoListadoble reco;
                 reco = raiz;
                 for (int f = 1; f <= pos - 2; f++)
                     reco = reco.sig;
-                Nodo prox = reco.sig;
+                NodoListadoble prox = reco.sig;
                 prox = prox.sig;
                 reco.sig = prox;
                 if (prox != null)
@@ -92,10 +114,10 @@ public class ListaDoblementeEnlazadaCanciones {
 
     public void switchPositions(int pos1, int pos2) {
         if (pos1 <= cantidad() && pos2 <= cantidad()) {
-            Nodo reco1 = raiz;
+            NodoListadoble reco1 = raiz;
             for (int f = 1; f < pos1; f++)
                 reco1 = reco1.sig;
-            Nodo reco2 = raiz;
+            NodoListadoble reco2 = raiz;
             for (int f = 1; f < pos2; f++)
                 reco2 = reco2.sig;
             Cancion aux = reco1.info;
@@ -106,7 +128,7 @@ public class ListaDoblementeEnlazadaCanciones {
 
     public int cantidad() {
         int cant = 0;
-        Nodo reco = raiz;
+        NodoListadoble reco = raiz;
         while (reco != null) {
             reco = reco.sig;
             cant++;
@@ -115,7 +137,7 @@ public class ListaDoblementeEnlazadaCanciones {
     }
 
     public boolean exists(Cancion x) {
-        Nodo reco = raiz;
+        NodoListadoble reco = raiz;
         while (reco != null) {
             if (reco.info == x)
                 return true;
@@ -133,7 +155,7 @@ public class ListaDoblementeEnlazadaCanciones {
 
     @Override
     public String toString() {
-        Nodo reco = raiz;
+        NodoListadoble reco = raiz;
         String aux = "";
         while (reco != null) {
             aux += reco.info.toString();
