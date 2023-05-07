@@ -7,12 +7,12 @@ public class Persistencia {
     /**
      * Ruta del archivo serializado binario del modelo
      */
-    public static final String RUTA_ARCHIVO_MODELO_TIENDA_BINARIO = "C:\\td\\persistencia\\model.dat";
+    public static final String RUTA_ARCHIVO_MODELO_TIENDA_BINARIO = "src/main/resources/com/tienda/musica/data/model.dat";
 
     /**
      * Ruta del archivo serializado XML del modelo
      */
-    public static final String RUTA_ARCHIVO_MODELO_CASA_XML = "C:\\td\\persistencia\\model.xml";
+    public static final String RUTA_ARCHIVO_MODELO_CASA_XML = "src/main/resources/com/tienda/musica/data/model.xml";
 
     /**
      * Metodo para cargar la arbolBinario del archivo binario

@@ -14,13 +14,12 @@
             <Font size="18.0" />
          </font></Label>
       <TextField fx:id="txtNombreArt" layoutX="31.0" layoutY="81.0" prefHeight="30.0" prefWidth="154.0" promptText="Nombre de Artista" />
-      <TextField fx:id="txtNacionalidad" layoutX="31.0" layoutY="139.0" prefHeight="30.0" prefWidth="154.0" promptText="Nacionalidad" />
+      <TextField fx:id="txtNacionalidad" layoutX="123.0" layoutY="138.0" prefHeight="30.0" prefWidth="154.0" promptText="Nacionalidad" />
       <Button fx:id="AgregarButton" layoutX="148.0" layoutY="221.0" mnemonicParsing="false" onAction="#GuardarArtista" prefHeight="25.0" prefWidth="106.0" text="Agregar">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
       <ComboBox fx:id="comboTipoArtista" layoutX="222.0" layoutY="81.0" prefWidth="150.0" promptText="Tipo Artista" />
-      <ComboBox fx:id="generoTipoArtista" layoutX="222.0" layoutY="141.0" prefWidth="150.0" promptText="Genero" />
    </children>
 </AnchorPane>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.18" class="java.beans.XMLDecoder">
+ <object class="com.tienda.musica.model.ArbolBinario">
+  <void property="nodo">
+   <object class="com.tienda.musica.model.nodos.NodoArbol" id="NodoArbol0">
+    <void class="com.tienda.musica.model.nodos.NodoArbol" method="getField">
+     <string>artista</string>
+     <void method="set">
+      <object idref="NodoArbol0"/>
+      <object class="com.tienda.musica.model.Artista">
+       <void property="esArtista">
+        <boolean>true</boolean>
+       </void>
+       <void property="listaCanciones">
+        <object class="com.tienda.musica.model.lists.ListaDoblementeEnlazadaCanciones">
+         <void property="raiz">
+          <object class="com.tienda.musica.model.nodos.NodoListadoble" id="NodoListadoble0">
+           <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+            <string>info</string>
+            <void method="set">
+             <object idref="NodoListadoble0"/>
+             <object class="com.tienda.musica.model.Cancion">
+              <void property="anio">
+               <int>2002</int>
+              </void>
+              <void property="caratula">
+               <string>/home/esteban/Videos/Screenshot_20230319_183558.png</string>
+              </void>
+              <void property="codigo">
+               <string>1</string>
+              </void>
+              <void property="duracion">
+               <string>03:30</string>
+              </void>
+              <void property="genero">
+               <string>Punk</string>
+              </void>
+              <void property="nombre">
+               <string>asda</string>
+              </void>
+              <void property="nombreAlbum">
+               <string>asd</string>
+              </void>
+              <void property="url">
+               <string>asda</string>
+              </void>
+             </object>
+            </void>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+       <void property="nacionalidad">
+        <string>Colombia</string>
+       </void>
+       <void property="nombre">
+        <string>Maria</string>
+       </void>
+       <void property="sizeCanciones">
+        <int>2</int>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void property="size">
+   <int>1</int>
+  </void>
+ </object>
+</java>

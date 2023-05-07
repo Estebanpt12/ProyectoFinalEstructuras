@@ -19,7 +19,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <TableView fx:id="tableCanciones" layoutX="19.0" layoutY="12.0" prefHeight="465.0" prefWidth="734.0">
+      <TableView fx:id="tableCanciones" layoutX="19.0" layoutY="12.0" prefHeight="466.0" prefWidth="767.0">
         <columns>
             <TableColumn fx:id="caratulaColumn" prefWidth="135.86595916748047" text="Caratula" />
           <TableColumn fx:id="nombreColumn" prefWidth="130.870849609375" text="Nombre" />
@@ -27,7 +27,8 @@
             <TableColumn fx:id="anioColumn" prefWidth="75.0" text="Año Publicacion" />
             <TableColumn fx:id="duracionColumn" prefWidth="75.0" text="Duracion" />
             <TableColumn fx:id="generoColumn" prefWidth="75.0" text="Genero" />
-            <TableColumn fx:id="urlColumn" prefWidth="149.85215398521154" text="URL" />
+            <TableColumn fx:id="urlColumn" prefWidth="73.92706298828125" text="URL" />
+            <TableColumn fx:id="autorColumn" prefWidth="104.89646839843476" text="Autor" />
         </columns>
       </TableView>
       <TextField fx:id="textFieldBuscar" layoutX="804.0" layoutY="39.0" onKeyTyped="#onKeyTypedFiltro" prefHeight="37.0" prefWidth="214.0" promptText="Filtrar Cancion" />

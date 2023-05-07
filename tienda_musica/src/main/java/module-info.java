@@ -20,6 +20,12 @@ module com.tienda.musica {
 
     opens com.tienda.musica.controllers to javafx.fxml;
     opens com.tienda.musica to javafx.fxml;
+    opens com.tienda.musica.controllers.modelTable to javafx.fxml;
+    opens com.tienda.musica.model to javafx.fxml;
+    opens com.tienda.musica.model.nodos to javafx.fxml;
 
     exports com.tienda.musica;
+    exports com.tienda.musica.model.nodos;
+    exports com.tienda.musica.model.lists;
+    exports com.tienda.musica.controllers.modelTable;
 }

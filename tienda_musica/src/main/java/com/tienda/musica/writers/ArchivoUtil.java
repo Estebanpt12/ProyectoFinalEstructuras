@@ -2,6 +2,7 @@ package com.tienda.musica.writers;
 
 import java.beans.*;
 import java.io.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -221,14 +222,15 @@ public class ArchivoUtil {
         XMLEncoder codificadorXML;
 
         codificadorXML = new XMLEncoder(new BufferedOutputStream(new FileOutputStream(rutaArchivo)));
-        codificadorXML.setPersistenceDelegate(LocalDateTime.class,
+        codificadorXML.setPersistenceDelegate(LocalDate.class,
                 new PersistenceDelegate() {
                     @Override
-                    protected Expression instantiate(Object localDateTime, Encoder encdr) {
-                        return new Expression(localDateTime,
-                                LocalDateTime.class,
-                                "parse",
-                                new Object[] { localDateTime.toString() });
+                    protected Expression instantiate(Object obj, Encoder encdr) {
+                        LocalDate localDate = (LocalDate) obj;
+                        return new Expression(localDate,
+                                LocalDate.class,
+                                "of",
+                                new Object[] { localDate.getYear(), localDate.getMonth(), localDate.getDayOfMonth() });
                     }
                 });
         codificadorXML.writeObject(objeto);

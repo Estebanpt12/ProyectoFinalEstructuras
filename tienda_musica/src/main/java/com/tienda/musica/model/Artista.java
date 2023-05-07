@@ -1,8 +1,10 @@
 package com.tienda.musica.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
+import com.tienda.musica.controllers.modelTable.ModelTable;
 import com.tienda.musica.exceptions.DataNotFoundException;
 import com.tienda.musica.model.lists.ListaDoblementeEnlazadaCanciones;
 import com.tienda.musica.utils.Formatter;
@@ -24,6 +26,7 @@ public class Artista implements Serializable {
         this.nombre = nombre;
         this.nacionalidad = nacionalidad;
         this.esArtista = esArtista;
+        this.sizeCanciones = 1;
         this.listaCanciones = new ListaDoblementeEnlazadaCanciones();
     }
 
@@ -99,15 +102,31 @@ public class Artista implements Serializable {
         return this;
     }
 
-    public void agregarCancion(String nombre, String nombreAlbum, String caratula, int anio, String duracion,
+    public Cancion agregarCancion(String nombre, String nombreAlbum, String caratula, int anio, String duracion,
             String genero, String url) {
-        listaCanciones.add(sizeCanciones, new Cancion(String.valueOf(sizeCanciones), nombre, nombreAlbum, caratula,
-                anio, Formatter.formatTime(duracion), genero, url));
+        Cancion cancion = new Cancion(String.valueOf(sizeCanciones), nombre, nombreAlbum, caratula,
+                anio, duracion, genero, url);
+        listaCanciones.add(sizeCanciones, cancion);
         sizeCanciones += 1;
+        return cancion;
     }
 
     public Cancion borrarCancion(String nombre) throws DataNotFoundException {
         return listaCanciones.delete(nombre);
+    }
+
+    public ArrayList<ModelTable> busquedaO(String nombre, String nombreAlbum, String anio, String duracion,
+            String genero, String url) throws DataNotFoundException {
+        return this.listaCanciones.busquedaO(nombre, nombreAlbum, anio, duracion, genero, url, this.nombre);
+    }
+
+    public ArrayList<ModelTable> busquedaY(String nombre, String nombreAlbum, String anio, String duracion,
+            String genero, String url) throws DataNotFoundException {
+        return this.listaCanciones.busquedaY(nombre, nombreAlbum, anio, duracion, genero, url, this.nombre);
+    }
+
+    public ArrayList<ModelTable> tomarListaCanciones() {
+        return this.listaCanciones.tomarListaCanciones(this.nombre);
     }
 
     @Override
