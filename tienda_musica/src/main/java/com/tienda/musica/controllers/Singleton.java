@@ -18,6 +18,8 @@ public class Singleton {
     String nombreArtista = "";
     char accionO = '|';
     char accionY = '&';
+    ArrayList<ModelTable> resultado;
+    boolean filtered = false;
 
     private static class SingletonHolder {
         private final static Singleton eINSTANCE = new Singleton();
@@ -37,6 +39,7 @@ public class Singleton {
             guardarArbol();
         }
         cancionAccion = null;
+        resultado = new ArrayList<>();
     }
 
     private void guardarArbol() {
@@ -52,9 +55,72 @@ public class Singleton {
         this.arbolBinario = arbolBinario;
     }
 
-    public ArrayList<ModelTable> busquedaO(String nombre, String nombreAlbum, String anio, String duracion,
+    public Cancion getCancionAccion() {
+        return this.cancionAccion;
+    }
+
+    public void setCancionAccion(Cancion cancionAccion) {
+        this.cancionAccion = cancionAccion;
+    }
+
+    public String getAccion() {
+        return this.accion;
+    }
+
+    public void setAccion(String accion) {
+        this.accion = accion;
+    }
+
+    public String getNombreArtista() {
+        return this.nombreArtista;
+    }
+
+    public void setNombreArtista(String nombreArtista) {
+        this.nombreArtista = nombreArtista;
+    }
+
+    public char getAccionO() {
+        return this.accionO;
+    }
+
+    public void setAccionO(char accionO) {
+        this.accionO = accionO;
+    }
+
+    public char getAccionY() {
+        return this.accionY;
+    }
+
+    public void setAccionY(char accionY) {
+        this.accionY = accionY;
+    }
+
+    public ArrayList<ModelTable> tomarCanciones() {
+        return this.arbolBinario.tomarCanciones();
+    }
+
+    public ArrayList<ModelTable> getResultado() {
+        return this.resultado;
+    }
+
+    public void setResultado(ArrayList<ModelTable> resultado) {
+        this.resultado = resultado;
+    }
+
+    public boolean isFiltered() {
+        return this.filtered;
+    }
+
+    public boolean getFiltered() {
+        return this.filtered;
+    }
+
+    public void setFiltered(boolean filtered) {
+        this.filtered = filtered;
+    }
+
+    public void busquedaO(String nombre, String nombreAlbum, String anio, String duracion,
             String genero, String url) throws DataNotFoundException {
-        ArrayList<ModelTable> resultado = new ArrayList<>();
         resultado = arbolBinario.busquedaOPrimer(nombre, nombreAlbum, anio, duracion, genero, url, resultado);
         Busqueda busquedaDerecha = new Busqueda(new ArbolBinario(arbolBinario.getNodo().nodoDerecho), accionO, nombre,
                 nombreAlbum, anio, duracion, genero, url);
@@ -69,16 +135,15 @@ public class Singleton {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (busquedaDerecha.isErrorFiltros() || busquedaIzquierda.isErrorFiltros())
-            throw new DataNotFoundException("Filtros no encontrados");
+        filtered = true;
         resultado.addAll(busquedaDerecha.getResultado());
         resultado.addAll(busquedaIzquierda.getResultado());
-        return resultado;
+        if (resultado.size() == 0)
+            throw new DataNotFoundException("Filtros no encontrados");
     }
 
-    public ArrayList<ModelTable> busquedaY(String nombre, String nombreAlbum, String anio, String duracion,
+    public void busquedaY(String nombre, String nombreAlbum, String anio, String duracion,
             String genero, String url) throws DataNotFoundException {
-        ArrayList<ModelTable> resultado = new ArrayList<>();
         resultado = arbolBinario.busquedaOPrimer(nombre, nombreAlbum, anio, duracion, genero, url, resultado);
         Busqueda busquedaDerecha = new Busqueda(new ArbolBinario(arbolBinario.getNodo().nodoDerecho), accionY, nombre,
                 nombreAlbum, anio, duracion, genero, url);
@@ -93,15 +158,25 @@ public class Singleton {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        if (busquedaDerecha.isErrorFiltros() || busquedaIzquierda.isErrorFiltros())
-            throw new DataNotFoundException("Filtros no encontrados");
         resultado.addAll(busquedaDerecha.getResultado());
         resultado.addAll(busquedaIzquierda.getResultado());
-        return resultado;
+        filtered = true;
+        if (resultado.size() == 0)
+            throw new DataNotFoundException("Filtros no encontrados");
     }
 
     public ArrayList<ModelTable> buscarArtista(String nombre) {
-        return this.arbolBinario.buscarArtista(nombre);
+        if (isFiltered()) {
+            ArrayList<ModelTable> aux = new ArrayList<>();
+            for (ModelTable modelTable : resultado) {
+                if (modelTable.getAutor().toLowerCase().contains(nombre.toLowerCase())) {
+                    aux.add(modelTable);
+                }
+            }
+            return aux;
+        } else {
+            return this.arbolBinario.buscarArtista(nombre);
+        }
     }
 
     public void agregarArtista(String nombre, String nacionalidad, boolean esArtista) throws DuplicatedDataException {

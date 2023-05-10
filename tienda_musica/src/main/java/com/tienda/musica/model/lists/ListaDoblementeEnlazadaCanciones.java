@@ -1,7 +1,10 @@
 package com.tienda.musica.model.lists;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 import com.tienda.musica.controllers.modelTable.ModelTable;
 import com.tienda.musica.exceptions.DataNotFoundException;
@@ -146,65 +149,66 @@ public class ListaDoblementeEnlazadaCanciones implements Serializable {
         ArrayList<ModelTable> resultado = new ArrayList<>();
         NodoListadoble reco = raiz;
         while (reco != null) {
-            resultado.add(new ModelTable(new ImageView(new Image(reco.info.getCaratula())), reco.info.getNombre(),
+            Image image = new Image(new File(reco.info.getCaratula()).toURI().toString());
+            resultado.add(new ModelTable(new ImageView(image), reco.info.getNombre(),
                     reco.info.getNombreAlbum(), reco.info.getAnio(), reco.info.getDuracion(), reco.info.getGenero(),
-                    nombreArtista));
+                    nombreArtista, reco.info.getUrl()));
             reco = reco.sig;
         }
         return resultado;
     }
 
     public ArrayList<ModelTable> busquedaO(String nombre, String nombreAlbum, String anio, String duracion,
-            String genero, String url, String nombreArtista) throws DataNotFoundException {
-        ArrayList<ModelTable> resultado = new ArrayList<>();
+            String genero, String url, String nombreArtista, ArrayList<ModelTable> resultado) {
         NodoListadoble reco = raiz;
         while (reco != null) {
             if (reco.info.getNombre().equals(nombre) || reco.info.getNombreAlbum().equals(nombreAlbum) ||
-                    !anio.isEmpty() ? reco.info.getAnio() == Integer.parseInt(anio)
-                            : false || duracion != null
-                                    ? reco.info.getDuracion().equals(Formatter.formatTime(duracion))
-                                    : false ||
-                                            reco.info.getGenero().equals(genero) || reco.info.getUrl().equals(url))
-                resultado.add(new ModelTable(new ImageView(new Image(reco.info.getCaratula())), reco.info.getNombre(),
+                    (!anio.equals("") ? reco.info.getAnio() == Integer.parseInt(anio) : false) ||
+                    (!duracion.equals("") ? reco.info.getDuracion().equals(Formatter.formatTime(duracion)) : false) ||
+                    reco.info.getGenero().equals(genero) || reco.info.getUrl().equals(url)) {
+                Image image = new Image(new File(reco.info.getCaratula()).toURI().toString());
+                resultado.add(new ModelTable(new ImageView(image), reco.info.getNombre(),
                         reco.info.getNombreAlbum(), reco.info.getAnio(), reco.info.getDuracion(), reco.info.getGenero(),
-                        nombreArtista));
+                        nombreArtista, reco.info.getUrl()));
+            }
             reco = reco.sig;
         }
-        if (resultado.size() == 0)
-            throw new DataNotFoundException("Filtro no encontrado");
         return resultado;
     }
 
     public ArrayList<ModelTable> busquedaY(String nombre, String nombreAlbum, String anio, String duracion,
-            String genero, String url, String nombreArtista) throws DataNotFoundException {
-        ArrayList<ModelTable> resultado = new ArrayList<>();
+            String genero, String url, String nombreArtista, ArrayList<ModelTable> resultado) {
         NodoListadoble reco = raiz;
         while (reco != null) {
-            if (!nombre.isEmpty() ? reco.info.getNombre().equals(nombre)
-                    : true &&
-                            !nombreAlbum.isEmpty() ? reco.info.getNombreAlbum().equals(nombreAlbum)
-                                    : true &&
-                                            !anio.isEmpty() ? reco.info.getAnio() == Integer.parseInt(anio)
-                                                    : true &&
-                                                            duracion != null
-                                                                    ? reco.info.getDuracion()
-                                                                            .equals(Formatter.formatTime(duracion))
-                                                                    : true &&
-                                                                            !genero.isEmpty()
-                                                                                    ? reco.info.getGenero()
-                                                                                            .equals(genero)
-                                                                                    : true &&
-                                                                                            !url.isEmpty()
-                                                                                                    ? reco.info.getUrl()
-                                                                                                            .equals(url)
-                                                                                                    : true)
-                resultado.add(new ModelTable(new ImageView(new Image(reco.info.getCaratula())), reco.info.getNombre(),
+            if ((!nombre.equals("") ? reco.info.getNombre().equals(nombre)
+                    : true) &&
+                    (!nombreAlbum.equals("") ? reco.info.getNombreAlbum().equals(nombreAlbum)
+                            : true)
+                    &&
+                    (!anio.equals("") ? reco.info.getAnio() == Integer.parseInt(anio)
+                            : true)
+                    &&
+                    (!duracion.equals("")
+                            ? reco.info.getDuracion()
+                                    .equals(Formatter.formatTime(duracion))
+                            : true)
+                    &&
+                    (!genero.equals("")
+                            ? reco.info.getGenero()
+                                    .equals(genero)
+                            : true)
+                    &&
+                    (!url.equals("")
+                            ? reco.info.getUrl()
+                                    .equals(url)
+                            : true)) {
+                Image image = new Image(new File(reco.info.getCaratula()).toURI().toString());
+                resultado.add(new ModelTable(new ImageView(image), reco.info.getNombre(),
                         reco.info.getNombreAlbum(), reco.info.getAnio(), reco.info.getDuracion(), reco.info.getGenero(),
-                        nombreArtista));
+                        nombreArtista, reco.info.getUrl()));
+            }
             reco = reco.sig;
         }
-        if (resultado.size() == 0)
-            throw new DataNotFoundException("Filtro no encontrado");
         return resultado;
     }
 

@@ -116,13 +116,13 @@ public class Artista implements Serializable {
     }
 
     public ArrayList<ModelTable> busquedaO(String nombre, String nombreAlbum, String anio, String duracion,
-            String genero, String url) throws DataNotFoundException {
-        return this.listaCanciones.busquedaO(nombre, nombreAlbum, anio, duracion, genero, url, this.nombre);
+            String genero, String url, ArrayList<ModelTable> resultado) {
+        return this.listaCanciones.busquedaO(nombre, nombreAlbum, anio, duracion, genero, url, this.nombre, resultado);
     }
 
     public ArrayList<ModelTable> busquedaY(String nombre, String nombreAlbum, String anio, String duracion,
-            String genero, String url) throws DataNotFoundException {
-        return this.listaCanciones.busquedaY(nombre, nombreAlbum, anio, duracion, genero, url, this.nombre);
+            String genero, String url, ArrayList<ModelTable> resultado) {
+        return this.listaCanciones.busquedaY(nombre, nombreAlbum, anio, duracion, genero, url, this.nombre, resultado);
     }
 
     public ArrayList<ModelTable> tomarListaCanciones() {

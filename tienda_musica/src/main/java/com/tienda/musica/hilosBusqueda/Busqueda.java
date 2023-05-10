@@ -3,7 +3,6 @@ package com.tienda.musica.hilosBusqueda;
 import java.util.ArrayList;
 
 import com.tienda.musica.controllers.modelTable.ModelTable;
-import com.tienda.musica.exceptions.DataNotFoundException;
 import com.tienda.musica.model.ArbolBinario;
 
 public class Busqueda extends Thread {
@@ -117,14 +116,10 @@ public class Busqueda extends Thread {
 
     @Override
     public void run() {
-        try {
-            realizarOperacion();
-        } catch (DataNotFoundException e) {
-            errorFiltros = true;
-        }
+        realizarOperacion();
     }
 
-    private void realizarOperacion() throws DataNotFoundException {
+    private void realizarOperacion() {
         if (operacion == '&') {
             busquedaY();
         }
@@ -133,11 +128,11 @@ public class Busqueda extends Thread {
         }
     }
 
-    private void busquedaO() throws DataNotFoundException {
+    private void busquedaO() {
         this.resultado = arbolBinario.busquedaO(nombre, nombreAlbum, anio, duracion, genero, url);
     }
 
-    private void busquedaY() throws DataNotFoundException {
+    private void busquedaY() {
         this.resultado = arbolBinario.busquedaY(nombre, nombreAlbum, anio, duracion, genero, url);
     }
 }

@@ -11,19 +11,31 @@ public class ModelTable {
     private String duracion;
     private String genero;
     private String autor;
+    private String url;
 
     public ModelTable() {
     }
 
     public ModelTable(ImageView caratula, String nombre, String nombreAlbum, int anio, String duracion,
-            String genero, String autor) {
+            String genero, String autor, String url) {
         this.caratula = caratula;
+        this.caratula.setFitWidth(30);
+        this.caratula.setFitHeight(30);
         this.nombre = nombre;
         this.nombreAlbum = nombreAlbum;
         this.anio = anio;
         this.duracion = duracion;
         this.genero = genero;
         this.autor = autor;
+        this.url = url;
+    }
+
+    public String getUrl() {
+        return this.url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public ImageView getCaratula() {

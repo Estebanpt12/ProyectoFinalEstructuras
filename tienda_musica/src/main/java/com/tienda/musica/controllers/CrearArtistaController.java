@@ -1,5 +1,6 @@
 package com.tienda.musica.controllers;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.zip.DataFormatException;
@@ -10,9 +11,13 @@ import com.tienda.musica.exceptions.DuplicatedDataException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class CrearArtistaController {
 
@@ -42,6 +47,20 @@ public class CrearArtistaController {
             validateFields();
             singleton.agregarArtista(txtNombreArt.getText(), txtNacionalidad.getText(),
                     comboTipoArtista.getSelectionModel().getSelectedItem().equals("Solista"));
+            try {
+                URL url = new File("src/main/resources/com/tienda/musica/MainView.fxml")
+                        .toURI().toURL();
+                Parent root1 = FXMLLoader.load(url);
+                Scene scene1 = new Scene(root1, 950, 578);
+                Stage stage1 = new Stage();
+                stage1.setTitle("Agregar Artista");
+                stage1.setScene(scene1);
+                stage1.show();
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+            Stage stage = (Stage) AgregarButton.getScene().getWindow();
+            stage.close();
         } catch (DataFormatException | DuplicatedDataException e) {
             mostrarMensaje(e.getMessage());
         }
