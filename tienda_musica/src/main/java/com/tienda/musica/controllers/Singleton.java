@@ -33,7 +33,7 @@ public class Singleton {
     }
 
     public Singleton() {
-        arbolBinario = Persistencia.cargarRecursoCasaXML();
+        arbolBinario = Persistencia.cargarRecursoArbolBinarioBinario();
         if (arbolBinario == null) {
             arbolBinario = new ArbolBinario();
             guardarArbol();
@@ -140,6 +140,12 @@ public class Singleton {
         resultado.addAll(busquedaIzquierda.getResultado());
         if (resultado.size() == 0)
             throw new DataNotFoundException("Filtros no encontrados");
+    }
+
+    public void limpiarBusqueda(){
+        this.filtered = false;
+        this.resultado = null;
+        this.resultado = new ArrayList<>();
     }
 
     public void busquedaY(String nombre, String nombreAlbum, String anio, String duracion,

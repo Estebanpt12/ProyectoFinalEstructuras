@@ -4,8 +4,6 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-import javax.imageio.ImageIO;
-
 import com.tienda.musica.controllers.modelTable.ModelTable;
 import com.tienda.musica.exceptions.DataNotFoundException;
 import com.tienda.musica.model.Cancion;
@@ -149,8 +147,7 @@ public class ListaDoblementeEnlazadaCanciones implements Serializable {
         ArrayList<ModelTable> resultado = new ArrayList<>();
         NodoListadoble reco = raiz;
         while (reco != null) {
-            Image image = new Image(new File(reco.info.getCaratula()).toURI().toString());
-            resultado.add(new ModelTable(new ImageView(image), reco.info.getNombre(),
+            resultado.add(new ModelTable(reco.info.getCaratula(), reco.info.getNombre(),
                     reco.info.getNombreAlbum(), reco.info.getAnio(), reco.info.getDuracion(), reco.info.getGenero(),
                     nombreArtista, reco.info.getUrl()));
             reco = reco.sig;
@@ -166,8 +163,7 @@ public class ListaDoblementeEnlazadaCanciones implements Serializable {
                     (!anio.equals("") ? reco.info.getAnio() == Integer.parseInt(anio) : false) ||
                     (!duracion.equals("") ? reco.info.getDuracion().equals(Formatter.formatTime(duracion)) : false) ||
                     reco.info.getGenero().equals(genero) || reco.info.getUrl().equals(url)) {
-                Image image = new Image(new File(reco.info.getCaratula()).toURI().toString());
-                resultado.add(new ModelTable(new ImageView(image), reco.info.getNombre(),
+                resultado.add(new ModelTable(reco.info.getCaratula(), reco.info.getNombre(),
                         reco.info.getNombreAlbum(), reco.info.getAnio(), reco.info.getDuracion(), reco.info.getGenero(),
                         nombreArtista, reco.info.getUrl()));
             }
@@ -180,6 +176,18 @@ public class ListaDoblementeEnlazadaCanciones implements Serializable {
             String genero, String url, String nombreArtista, ArrayList<ModelTable> resultado) {
         NodoListadoble reco = raiz;
         while (reco != null) {
+            System.out.println(reco.info.getNombre());
+            System.out.println((!nombre.equals("") ? reco.info.getNombre().equals(nombre)
+            : true));
+            System.out.println((!nombreAlbum.equals("") ? reco.info.getNombreAlbum().equals(nombreAlbum)
+            : true));
+            System.out.println((!anio.equals("") ? reco.info.getAnio() == Integer.parseInt(anio)
+            : true));
+            System.out.println((!duracion.equals("") ? reco.info.getDuracion().equals(duracion)
+            : true));
+            System.out.println((!genero.equals("")? reco.info.getGenero().equals(genero)
+            : true));
+            System.out.println((!url.equals("")? reco.info.getUrl().equals(url): true));
             if ((!nombre.equals("") ? reco.info.getNombre().equals(nombre)
                     : true) &&
                     (!nombreAlbum.equals("") ? reco.info.getNombreAlbum().equals(nombreAlbum)
@@ -188,22 +196,14 @@ public class ListaDoblementeEnlazadaCanciones implements Serializable {
                     (!anio.equals("") ? reco.info.getAnio() == Integer.parseInt(anio)
                             : true)
                     &&
-                    (!duracion.equals("")
-                            ? reco.info.getDuracion()
-                                    .equals(Formatter.formatTime(duracion))
+                    (!duracion.equals("") ? reco.info.getDuracion().equals(duracion)
                             : true)
                     &&
-                    (!genero.equals("")
-                            ? reco.info.getGenero()
-                                    .equals(genero)
+                    (!genero.equals("")? reco.info.getGenero().equals(genero)
                             : true)
                     &&
-                    (!url.equals("")
-                            ? reco.info.getUrl()
-                                    .equals(url)
-                            : true)) {
-                Image image = new Image(new File(reco.info.getCaratula()).toURI().toString());
-                resultado.add(new ModelTable(new ImageView(image), reco.info.getNombre(),
+                    (!url.equals("")? reco.info.getUrl().equals(url): true)) {
+                resultado.add(new ModelTable(reco.info.getCaratula(), reco.info.getNombre(),
                         reco.info.getNombreAlbum(), reco.info.getAnio(), reco.info.getDuracion(), reco.info.getGenero(),
                         nombreArtista, reco.info.getUrl()));
             }

@@ -51,6 +51,31 @@ public class ArbolBinario implements Serializable {
         return this.nodo;
     }
 
+
+    public Cancion getCancionEliminada() {
+        return this.cancionEliminada;
+    }
+
+    public void setCancionEliminada(Cancion cancionEliminada) {
+        this.cancionEliminada = cancionEliminada;
+    }
+
+    public Cancion getCancionAgregada() {
+        return this.cancionAgregada;
+    }
+
+    public void setCancionAgregada(Cancion cancionAgregada) {
+        this.cancionAgregada = cancionAgregada;
+    }
+
+    public ArrayList<ModelTable> getCancionesEncontradas() {
+        return this.cancionesEncontradas;
+    }
+
+    public void setCancionesEncontradas(ArrayList<ModelTable> cancionesEncontradas) {
+        this.cancionesEncontradas = cancionesEncontradas;
+    }
+
     public void setNodo(NodoArbol nodo) {
         this.nodo = nodo;
     }
@@ -128,6 +153,7 @@ public class ArbolBinario implements Serializable {
     public Cancion agregarCancion(String nombreArtista, String nombre, String nombreAlbum, String caratula, int anio,
             String duracion,
             String genero, String url) throws DataNotFoundException {
+        cancionAgregada = null;
         agregarCancion(nodo, nombreArtista, nombre, nombreAlbum, caratula, anio, duracion, genero, url);
         if (cancionAgregada == null)
             throw new DataNotFoundException("Artista no encontrado");
@@ -175,20 +201,23 @@ public class ArbolBinario implements Serializable {
 
     public ArrayList<ModelTable> busquedaO(String nombre, String nombreAlbum, String anio, String duracion,
             String genero, String url) {
-        return busquedaO(this.nodo, nombre, nombreAlbum, anio, duracion, genero, url, new ArrayList<ModelTable>());
+        ArrayList<ModelTable> resultado = new ArrayList<ModelTable>();
+        busquedaO(this.nodo, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
+        return resultado;
     }
 
-    private ArrayList<ModelTable> busquedaO(NodoArbol nodo, String nombre, String nombreAlbum, String anio,
+    private void busquedaO(NodoArbol nodo, String nombre, String nombreAlbum, String anio,
             String duracion,
             String genero, String url, ArrayList<ModelTable> resultado) {
-        if (nodo.nodoIzquierdo != null) {
-            resultado.addAll(nodo.artista.busquedaO(nombre, nombreAlbum, anio, duracion, genero, url, resultado));
-            busquedaO(nodo.nodoIzquierdo, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
-        } else if (nodo.nodoDerecho != null) {
-            resultado.addAll(nodo.artista.busquedaO(nombre, nombreAlbum, anio, duracion, genero, url, resultado));
-            busquedaO(nodo.nodoIzquierdo, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
+        if(nodo != null){
+            nodo.artista.busquedaO(nombre, nombreAlbum, anio, duracion, genero, url, resultado);
         }
-        return resultado;
+        if (nodo.nodoIzquierdo != null) {
+            busquedaO(nodo.nodoIzquierdo, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
+        } 
+        if (nodo.nodoDerecho != null) {
+            busquedaO(nodo.nodoDerecho, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
+        }
     }
 
     public ArrayList<ModelTable> busquedaOPrimer(String nombre, String nombreAlbum, String anio,
@@ -205,20 +234,23 @@ public class ArbolBinario implements Serializable {
 
     public ArrayList<ModelTable> busquedaY(String nombre, String nombreAlbum, String anio, String duracion,
             String genero, String url) {
-        return busquedaY(this.nodo, nombre, nombreAlbum, anio, duracion, genero, url, new ArrayList<ModelTable>());
+        ArrayList<ModelTable> resultado = new ArrayList<ModelTable>();
+        busquedaY(this.nodo, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
+        return resultado;
     }
 
-    private ArrayList<ModelTable> busquedaY(NodoArbol nodo, String nombre, String nombreAlbum, String anio,
+    private void busquedaY(NodoArbol nodo, String nombre, String nombreAlbum, String anio,
             String duracion,
             String genero, String url, ArrayList<ModelTable> resultado) {
-        if (nodo.nodoIzquierdo != null) {
-            resultado.addAll(nodo.artista.busquedaY(nombre, nombreAlbum, anio, duracion, genero, url, resultado));
-            busquedaY(nodo.nodoIzquierdo, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
-        } else if (nodo.nodoDerecho != null) {
-            resultado.addAll(nodo.artista.busquedaY(nombre, nombreAlbum, anio, duracion, genero, url, resultado));
-            busquedaY(nodo.nodoIzquierdo, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
+        if(nodo != null){
+            nodo.artista.busquedaY(nombre, nombreAlbum, anio, duracion, genero, url, resultado);
         }
-        return resultado;
+        if (nodo.nodoIzquierdo != null) {
+            busquedaY(nodo.nodoIzquierdo, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
+        } 
+        if (nodo.nodoDerecho != null) {
+            busquedaY(nodo.nodoDerecho, nombre, nombreAlbum, anio, duracion, genero, url, resultado);
+        }
     }
 
 }

@@ -1,6 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="11.0.19" class="java.beans.XMLDecoder">
+<java version="17.0.6" class="java.beans.XMLDecoder">
  <object class="com.tienda.musica.model.ArbolBinario">
+  <void property="cancionAgregada">
+   <object class="com.tienda.musica.model.Cancion">
+    <void property="anio">
+     <int>2002</int>
+    </void>
+    <void property="caratula">
+     <string>C:\Users\Admin\Documents\ProyectoFinalEstructuras\tienda_musica\src\main\resources\com\tienda\musica\1.jpg</string>
+    </void>
+    <void property="codigo">
+     <string>7</string>
+    </void>
+    <void property="duracion">
+     <string>04:52</string>
+    </void>
+    <void property="genero">
+     <string>Pop</string>
+    </void>
+    <void property="nombre">
+     <string>asd</string>
+    </void>
+    <void property="nombreAlbum">
+     <string>dasd</string>
+    </void>
+    <void property="url">
+     <string>asd</string>
+    </void>
+   </object>
+  </void>
   <void property="nodo">
    <object class="com.tienda.musica.model.nodos.NodoArbol" id="NodoArbol0">
     <void class="com.tienda.musica.model.nodos.NodoArbol" method="getField">
@@ -170,7 +198,7 @@
            <string>Queen</string>
           </void>
           <void property="sizeCanciones">
-           <int>3</int>
+           <int>8</int>
           </void>
          </object>
         </void>
