@@ -14,7 +14,6 @@ import java.net.URL;
  * JavaFX App
  */
 public class App extends Application {
-clear
     @Override
     public void start(Stage stage) throws IOException {
         URL url = new File("src/main/resources/com/tienda/musica/Login.fxml").toURI().toURL();
