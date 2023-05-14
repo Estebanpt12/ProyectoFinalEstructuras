@@ -14,15 +14,16 @@ import java.net.URL;
  * JavaFX App
  */
 public class App extends Application {
-
+clear
     @Override
     public void start(Stage stage) throws IOException {
-        URL url = new File("src/main/resources/com/tienda/musica/MainView.fxml").toURI().toURL();
+        URL url = new File("src/main/resources/com/tienda/musica/Login.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
-        Scene scene = new Scene(root, 950, 578);
+        Scene scene = new Scene(root);
         stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void main(String[] args) {

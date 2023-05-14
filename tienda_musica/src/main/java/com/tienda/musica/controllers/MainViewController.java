@@ -110,7 +110,7 @@ public class MainViewController {
             URL url = new File("src/main/resources/com/tienda/musica/SearchView.fxml")
                     .toURI().toURL();
             Parent root1 = FXMLLoader.load(url);
-            Scene scene1 = new Scene(root1, 481, 370);
+            Scene scene1 = new Scene(root1);
             Stage stage1 = new Stage();
             stage1.setTitle("Agregar Artista");
             stage1.setScene(scene1);
@@ -128,7 +128,7 @@ public class MainViewController {
             URL url = new File("src/main/resources/com/tienda/musica/CrearArtistaView.fxml")
                     .toURI().toURL();
             Parent root1 = FXMLLoader.load(url);
-            Scene scene1 = new Scene(root1, 400, 275);
+            Scene scene1 = new Scene(root1);
             Stage stage1 = new Stage();
             stage1.setTitle("Agregar Artista");
             stage1.setScene(scene1);
@@ -150,7 +150,7 @@ public class MainViewController {
             URL url = new File("src/main/resources/com/tienda/musica/CancionView.fxml")
                     .toURI().toURL();
             Parent root1 = FXMLLoader.load(url);
-            Scene scene1 = new Scene(root1, 481, 454);
+            Scene scene1 = new Scene(root1);
             Stage stage1 = new Stage();
             stage1.setTitle("Agregar Cancion");
             stage1.setScene(scene1);
