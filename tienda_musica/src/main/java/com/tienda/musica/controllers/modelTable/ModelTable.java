@@ -1,10 +1,10 @@
 package com.tienda.musica.controllers.modelTable;
 
-import javafx.scene.image.ImageView;
+import java.io.Serializable;
 import java.util.Objects;
 
-public class ModelTable {
-    private ImageView caratula;
+public class ModelTable implements Serializable{
+    private String caratula;
     private String nombre;
     private String nombreAlbum;
     private int anio;
@@ -16,11 +16,9 @@ public class ModelTable {
     public ModelTable() {
     }
 
-    public ModelTable(ImageView caratula, String nombre, String nombreAlbum, int anio, String duracion,
+    public ModelTable(String caratula, String nombre, String nombreAlbum, int anio, String duracion,
             String genero, String autor, String url) {
         this.caratula = caratula;
-        this.caratula.setFitWidth(30);
-        this.caratula.setFitHeight(30);
         this.nombre = nombre;
         this.nombreAlbum = nombreAlbum;
         this.anio = anio;
@@ -36,14 +34,6 @@ public class ModelTable {
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public ImageView getCaratula() {
-        return this.caratula;
-    }
-
-    public void setCaratula(ImageView caratula) {
-        this.caratula = caratula;
     }
 
     public String getNombre() {
@@ -94,11 +84,6 @@ public class ModelTable {
         this.autor = autor;
     }
 
-    public ModelTable caratula(ImageView caratula) {
-        setCaratula(caratula);
-        return this;
-    }
-
     public ModelTable nombre(String nombre) {
         setNombre(nombre);
         return this;
@@ -127,6 +112,15 @@ public class ModelTable {
     public ModelTable autor(String autor) {
         setAutor(autor);
         return this;
+    }
+
+
+    public String getCaratula() {
+        return this.caratula;
+    }
+
+    public void setCaratula(String caratula) {
+        this.caratula = caratula;
     }
 
     @Override

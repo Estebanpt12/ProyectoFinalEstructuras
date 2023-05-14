@@ -96,7 +96,9 @@ public class MainViewController {
 
     @FXML
     void actionLimpiar(ActionEvent event) {
+        singleton.limpiarBusqueda();
         actualizarDatos();
+        limpiarButton.setDisable(true);
     }
 
     @FXML
@@ -227,13 +229,13 @@ public class MainViewController {
                 : "fx:id=\"urlColumn\" was not injected: check your FXML file 'MainView.fxml'.";
         assert busquedaButton != null
                 : "fx:id=\"busquedaButton\" was not injected: check your FXML file 'MainView.fxml'.";
+        singleton = Singleton.getInstance();
         deshacerButton.setDisable(true);
         rehacerButton.setDisable(true);
         if (!singleton.isFiltered()) {
             limpiarButton.setDisable(true);
         }
         loadTable();
-        singleton = Singleton.getInstance();
     }
 
     private void actualizarDatos() {
@@ -272,13 +274,24 @@ public class MainViewController {
         generoColumn.setCellValueFactory(new PropertyValueFactory<>("Genero"));
         autorColumn.setCellValueFactory(new PropertyValueFactory<>("Autor"));
         urlColumn.setCellValueFactory(new PropertyValueFactory<>("Url"));
-        try {
-            datos = this.singleton.tomarCanciones();
-            datosLista.clear();
-            datosLista.addAll(datos);
-            tableCanciones.setItems(datosLista);
-        } catch (Exception e) {
+        if (singleton.isFiltered()) {
+            try {
+                datos = this.singleton.getResultado();
+                datosLista.clear();
+                datosLista.addAll(datos);
+                tableCanciones.setItems(datosLista);
+            } catch (Exception e) {
 
+            }
+        } else {
+            try {
+                datos = this.singleton.tomarCanciones();
+                datosLista.clear();
+                datosLista.addAll(datos);
+                tableCanciones.setItems(datosLista);
+            } catch (Exception e) {
+
+            }
         }
     }
 
