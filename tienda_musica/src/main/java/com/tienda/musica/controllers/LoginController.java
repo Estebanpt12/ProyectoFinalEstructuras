@@ -12,7 +12,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javax.swing.*;
@@ -46,11 +45,14 @@ public class LoginController {
                 Parent root1 = FXMLLoader.load(url);
                 Scene scene1 = new Scene(root1);
                 Stage stage1 = new Stage();
-                stage1.setTitle("Ingresar al Storify");
+                stage1.setTitle("Storify");
                 stage1.setScene(scene1);
                 stage1.show();
                 Stage stage = (Stage) btnIngresar.getScene().getWindow();
+                stage.close();
 
+            }else{
+                JOptionPane.showMessageDialog(null, "Credenciales incorrectas");
             }
         } catch (IOException e) {
             mostrarMensaje(e.getMessage());

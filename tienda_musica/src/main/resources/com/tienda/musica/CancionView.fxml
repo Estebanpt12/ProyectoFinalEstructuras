@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="454.0" prefWidth="481.0" style="-fx-background-color: #eef2f7;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tienda.musica.controllers.AgregarCancionController">
+<AnchorPane prefHeight="490.0" prefWidth="481.0" style="-fx-background-color: #eef2f7;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tienda.musica.controllers.AgregarCancionController">
    <children>
       <TextField fx:id="fieldCancion" layoutX="274.0" layoutY="104.0" prefHeight="35.0" prefWidth="152.0" promptText="Nombre de cancion" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
       <TextField fx:id="fieldAlbum" layoutX="274.0" layoutY="163.0" prefHeight="35.0" prefWidth="152.0" promptText="Nombre del album" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
-      <Button fx:id="agregarButton" layoutX="185.0" layoutY="364.0" mnemonicParsing="false" onAction="#onActionAgregar" opacity="0.84" prefHeight="43.0" prefWidth="109.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Agregar" textFill="#544aff">
+      <Button fx:id="agregarButton" layoutX="186.0" layoutY="439.0" mnemonicParsing="false" onAction="#onActionAgregar" opacity="0.84" prefHeight="43.0" prefWidth="109.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Agregar" textFill="#544aff">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
@@ -38,7 +38,7 @@
             <Font size="12.0" />
          </font>
       </Button>
-      <Text fx:id="textCaratula" layoutX="274.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.85115587506561" />
+      <Text fx:id="textCaratula" layoutX="274.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.85115587506561" />
       <TextField fx:id="fieldArtista" layoutX="54.0" layoutY="104.0" prefHeight="35.0" prefWidth="152.0" promptText="Nombre de artista" style="-fx-background-radius: 10;" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
       <ComboBox fx:id="comboGenero" layoutX="48.0" layoutY="282.0" prefHeight="35.0" prefWidth="154.0" promptText="Genero" style="-fx-background-radius: 10;" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css">
          <styleClass>

@@ -55,9 +55,6 @@ public class MainViewController {
     private TableColumn<ModelTable, String> autorColumn;
 
     @FXML
-    private Button deshacerButton;
-
-    @FXML
     private TableColumn<ModelTable, String> duracionColumn;
 
     @FXML
@@ -71,9 +68,6 @@ public class MainViewController {
 
     @FXML
     private TableColumn<ModelTable, String> nombreColumn;
-
-    @FXML
-    private Button rehacerButton;
 
     @FXML
     private TableView<ModelTable> tableCanciones;
@@ -90,20 +84,10 @@ public class MainViewController {
     private ObservableList<ModelTable> datosLista = FXCollections.observableArrayList();
 
     @FXML
-    void actionDeshacer(ActionEvent event) {
-
-    }
-
-    @FXML
     void actionLimpiar(ActionEvent event) {
         singleton.limpiarBusqueda();
         actualizarDatos();
         limpiarButton.setDisable(true);
-    }
-
-    @FXML
-    void actionRehacer(ActionEvent event) {
-
     }
 
     @FXML
@@ -114,7 +98,7 @@ public class MainViewController {
             Parent root1 = FXMLLoader.load(url);
             Scene scene1 = new Scene(root1);
             Stage stage1 = new Stage();
-            stage1.setTitle("Agregar Artista");
+            stage1.setTitle("Busqueda Avanzada");
             stage1.setScene(scene1);
             stage1.show();
             Stage stage = (Stage) textFieldBuscar.getScene().getWindow();
@@ -207,8 +191,6 @@ public class MainViewController {
                 : "fx:id=\"anioColumn\" was not injected: check your FXML file 'MainView.fxml'.";
         assert autorColumn != null
                 : "fx:id=\"autorColumn\" was not injected: check your FXML file 'MainView.fxml'.";
-        assert deshacerButton != null
-                : "fx:id=\"deshacerButton\" was not injected: check your FXML file 'MainView.fxml'.";
         assert duracionColumn != null
                 : "fx:id=\"duracionColumn\" was not injected: check your FXML file 'MainView.fxml'.";
         assert eliminarButton != null
@@ -217,8 +199,6 @@ public class MainViewController {
                 : "fx:id=\"generoColumn\" was not injected: check your FXML file 'MainView.fxml'.";
         assert nombreColumn != null
                 : "fx:id=\"nombreColumn\" was not injected: check your FXML file 'MainView.fxml'.";
-        assert rehacerButton != null
-                : "fx:id=\"rehacerButton\" was not injected: check your FXML file 'MainView.fxml'.";
         assert limpiarButton != null
                 : "fx:id=\"rehacerButton1\" was not injected: check your FXML file 'MainView.fxml'.";
         assert tableCanciones != null
@@ -230,8 +210,6 @@ public class MainViewController {
         assert busquedaButton != null
                 : "fx:id=\"busquedaButton\" was not injected: check your FXML file 'MainView.fxml'.";
         singleton = Singleton.getInstance();
-        deshacerButton.setDisable(true);
-        rehacerButton.setDisable(true);
         if (!singleton.isFiltered()) {
             limpiarButton.setDisable(true);
         }

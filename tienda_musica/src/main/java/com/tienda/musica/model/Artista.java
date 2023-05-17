@@ -7,7 +7,6 @@ import java.util.Objects;
 import com.tienda.musica.controllers.modelTable.ModelTable;
 import com.tienda.musica.exceptions.DataNotFoundException;
 import com.tienda.musica.model.lists.ListaDoblementeEnlazadaCanciones;
-import com.tienda.musica.utils.Formatter;
 
 public class Artista implements Serializable {
 
@@ -106,8 +105,7 @@ public class Artista implements Serializable {
             String genero, String url) {
         Cancion cancion = new Cancion(String.valueOf(sizeCanciones), nombre, nombreAlbum, caratula,
                 anio, duracion, genero, url);
-        listaCanciones.add(sizeCanciones, cancion);
-        sizeCanciones += 1;
+        listaCanciones.add(listaCanciones.cantidad() + 1, cancion);
         return cancion;
     }
 

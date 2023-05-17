@@ -16,45 +16,17 @@
 
 <AnchorPane prefHeight="578.0" prefWidth="991.0" style="-fx-background-color: #eef2f7;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tienda.musica.controllers.MainViewController">
    <children>
-      <TableView fx:id="tableCanciones" layoutX="14.0" layoutY="49.0" prefHeight="466.0" prefWidth="733.0" style="-fx-background-color: transparent;">
+      <TableView fx:id="tableCanciones" layoutX="14.0" layoutY="49.0" prefHeight="509.0" prefWidth="733.0" style="-fx-background-color: transparent;">
         <columns>
           <TableColumn fx:id="nombreColumn" prefWidth="130.870849609375" text="Nombre" />
           <TableColumn fx:id="albumColumn" prefWidth="89.91131591796875" text="Album" />
             <TableColumn fx:id="anioColumn" prefWidth="75.0" text="Año Publicacion" />
             <TableColumn fx:id="duracionColumn" prefWidth="75.0" text="Duracion" />
             <TableColumn fx:id="generoColumn" prefWidth="75.0" text="Genero" />
-            <TableColumn fx:id="urlColumn" prefWidth="73.92706298828125" text="URL" />
-            <TableColumn fx:id="autorColumn" prefWidth="146.8551025390625" text="Autor" />
+            <TableColumn fx:id="urlColumn" prefWidth="165.0" text="URL" />
+            <TableColumn fx:id="autorColumn" prefWidth="121.0" text="Autor" />
         </columns>
       </TableView>
-      <Button fx:id="deshacerButton" layoutX="36.0" layoutY="532.0" mnemonicParsing="false" onAction="#actionDeshacer" opacity="0.84" prefHeight="31.0" prefWidth="126.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Deshacer" textFill="#544aff">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-         <effect>
-            <Glow />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <styleClass>
-            <String fx:value="buscar-box" />
-            <String fx:value="buscar-button-loggin" />
-         </styleClass></Button>
-      <Button fx:id="rehacerButton" layoutX="621.0" layoutY="523.0" mnemonicParsing="false" onAction="#actionRehacer" opacity="0.84" prefHeight="31.0" prefWidth="126.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Rehacer" textFill="#544aff">
-         <font>
-            <Font name="System Bold Italic" size="12.0" />
-         </font>
-         <effect>
-            <Glow />
-         </effect>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <styleClass>
-            <String fx:value="buscar-box" />
-            <String fx:value="buscar-button-loggin" />
-         </styleClass></Button>
       <Button fx:id="limpiarButton" layoutX="611.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionLimpiar" prefHeight="20.0" prefWidth="127.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Limpiar Filtros" textFill="#544aff">
          <font>
             <Font name="System Bold Italic" size="12.0" />
@@ -113,7 +85,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <TextField fx:id="textFieldBuscar" layoutY="54.0" onKeyTyped="#onKeyTypedFiltro" prefHeight="37.0" prefWidth="207.0" promptText="Filtrar Cancion" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
+            <TextField fx:id="textFieldBuscar" layoutY="54.0" onKeyTyped="#onKeyTypedFiltro" prefHeight="37.0" prefWidth="207.0" promptText="Filtrar Artista" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
             <Button fx:id="agregarCancionButton" layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#onActionAgregarCancion" opacity="0.84" prefHeight="38.0" prefWidth="166.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Agregar Cancion" textFill="#544aff">
                <font>
                   <Font name="System Bold Italic" size="16.0" />

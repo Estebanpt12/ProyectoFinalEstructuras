@@ -1,6 +1,5 @@
 package com.tienda.musica.model.lists;
 
-import java.io.File;
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -10,15 +9,22 @@ import com.tienda.musica.model.Cancion;
 import com.tienda.musica.model.nodos.NodoListadoble;
 import com.tienda.musica.utils.Formatter;
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
 public class ListaDoblementeEnlazadaCanciones implements Serializable {
 
     private NodoListadoble raiz;
 
     public ListaDoblementeEnlazadaCanciones() {
         raiz = null;
+    }
+
+    public int cantidad() {
+        int cant = 0;
+        NodoListadoble reco = raiz;
+        while (reco != null) {
+            reco = reco.sig;
+            cant++;
+        }
+        return cant;
     }
 
     public void add(int pos, Cancion x) {
@@ -133,15 +139,7 @@ public class ListaDoblementeEnlazadaCanciones implements Serializable {
         }
     }
 
-    public int cantidad() {
-        int cant = 0;
-        NodoListadoble reco = raiz;
-        while (reco != null) {
-            reco = reco.sig;
-            cant++;
-        }
-        return cant;
-    }
+    
 
     public ArrayList<ModelTable> tomarListaCanciones(String nombreArtista) {
         ArrayList<ModelTable> resultado = new ArrayList<>();
@@ -176,18 +174,6 @@ public class ListaDoblementeEnlazadaCanciones implements Serializable {
             String genero, String url, String nombreArtista, ArrayList<ModelTable> resultado) {
         NodoListadoble reco = raiz;
         while (reco != null) {
-            System.out.println(reco.info.getNombre());
-            System.out.println((!nombre.equals("") ? reco.info.getNombre().equals(nombre)
-            : true));
-            System.out.println((!nombreAlbum.equals("") ? reco.info.getNombreAlbum().equals(nombreAlbum)
-            : true));
-            System.out.println((!anio.equals("") ? reco.info.getAnio() == Integer.parseInt(anio)
-            : true));
-            System.out.println((!duracion.equals("") ? reco.info.getDuracion().equals(duracion)
-            : true));
-            System.out.println((!genero.equals("")? reco.info.getGenero().equals(genero)
-            : true));
-            System.out.println((!url.equals("")? reco.info.getUrl().equals(url): true));
             if ((!nombre.equals("") ? reco.info.getNombre().equals(nombre)
                     : true) &&
                     (!nombreAlbum.equals("") ? reco.info.getNombreAlbum().equals(nombreAlbum)
@@ -199,7 +185,7 @@ public class ListaDoblementeEnlazadaCanciones implements Serializable {
                     (!duracion.equals("") ? reco.info.getDuracion().equals(duracion)
                             : true)
                     &&
-                    (!genero.equals("")? reco.info.getGenero().equals(genero)
+                    (genero!=null? reco.info.getGenero().equals(genero)
                             : true)
                     &&
                     (!url.equals("")? reco.info.getUrl().equals(url): true)) {

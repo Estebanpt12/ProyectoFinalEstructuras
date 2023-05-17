@@ -41,7 +41,6 @@ public class ArbolBinario implements Serializable {
 
     private void imprimir(NodoArbol n) {
         if (n != null) {
-            System.out.println(n.artista.toString());
             imprimir(n.nodoIzquierdo);
             imprimir(n.nodoDerecho);
         }

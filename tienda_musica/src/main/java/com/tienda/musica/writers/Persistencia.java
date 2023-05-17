@@ -47,7 +47,7 @@ public class Persistencia {
      * 
      * @return arbolBinario
      */
-    public static ArbolBinario cargarRecursoCasaXML() {
+    public static ArbolBinario cargarRecursoArbolXML() {
         ArbolBinario arbolBinario = null;
         try {
             arbolBinario = (ArbolBinario) ArchivoUtil.cargarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_CASA_XML);
@@ -62,7 +62,7 @@ public class Persistencia {
      * 
      * @param subastasQuindio arbolBinario a guardar
      */
-    public static void guardarRecursoCasaXML(ArbolBinario arbolBinario) {
+    public static void guardarRecursoArbolXML(ArbolBinario arbolBinario) {
         try {
             ArchivoUtil.salvarRecursoSerializadoXML(RUTA_ARCHIVO_MODELO_CASA_XML, arbolBinario);
         } catch (Exception e) {

@@ -129,10 +129,14 @@ public class Busqueda extends Thread {
     }
 
     private void busquedaO() {
-        this.resultado = arbolBinario.busquedaO(nombre, nombreAlbum, anio, duracion, genero, url);
+        if(arbolBinario.getNodo() != null){
+            this.resultado = arbolBinario.busquedaO(nombre, nombreAlbum, anio, duracion, genero, url);
+        }
     }
 
     private void busquedaY() {
-        this.resultado = arbolBinario.busquedaY(nombre, nombreAlbum, anio, duracion, genero, url);
+        if(arbolBinario.getNodo() != null){
+            this.resultado = arbolBinario.busquedaY(nombre, nombreAlbum, anio, duracion, genero, url);
+        }
     }
 }

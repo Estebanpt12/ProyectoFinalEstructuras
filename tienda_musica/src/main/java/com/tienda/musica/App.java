@@ -19,7 +19,7 @@ public class App extends Application {
         URL url = new File("src/main/resources/com/tienda/musica/Login.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         Scene scene = new Scene(root);
-        stage.setTitle("Hello!");
+        stage.setTitle("Login");
         stage.setScene(scene);
         stage.show();
 

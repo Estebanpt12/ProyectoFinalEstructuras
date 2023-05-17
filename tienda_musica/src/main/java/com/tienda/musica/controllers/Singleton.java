@@ -7,14 +7,11 @@ import com.tienda.musica.exceptions.DataNotFoundException;
 import com.tienda.musica.exceptions.DuplicatedDataException;
 import com.tienda.musica.hilosBusqueda.Busqueda;
 import com.tienda.musica.model.ArbolBinario;
-import com.tienda.musica.model.Cancion;
 import com.tienda.musica.writers.Persistencia;
 
 public class Singleton {
 
     ArbolBinario arbolBinario;
-    Cancion cancionAccion;
-    String accion = "";
     String nombreArtista = "";
     char accionO = '|';
     char accionY = '&';
@@ -33,17 +30,16 @@ public class Singleton {
     }
 
     public Singleton() {
-        arbolBinario = Persistencia.cargarRecursoArbolBinarioBinario();
+        arbolBinario = Persistencia.cargarRecursoArbolXML();
         if (arbolBinario == null) {
             arbolBinario = new ArbolBinario();
             guardarArbol();
         }
-        cancionAccion = null;
         resultado = new ArrayList<>();
     }
 
     private void guardarArbol() {
-        Persistencia.guardarRecursoCasaXML(arbolBinario);
+        Persistencia.guardarRecursoArbolXML(arbolBinario);
         Persistencia.guardarRecursoArbolBinarioBinario(arbolBinario);
     }
 
@@ -53,22 +49,6 @@ public class Singleton {
 
     public void setArbolBinario(ArbolBinario arbolBinario) {
         this.arbolBinario = arbolBinario;
-    }
-
-    public Cancion getCancionAccion() {
-        return this.cancionAccion;
-    }
-
-    public void setCancionAccion(Cancion cancionAccion) {
-        this.cancionAccion = cancionAccion;
-    }
-
-    public String getAccion() {
-        return this.accion;
-    }
-
-    public void setAccion(String accion) {
-        this.accion = accion;
     }
 
     public String getNombreArtista() {
@@ -150,7 +130,7 @@ public class Singleton {
 
     public void busquedaY(String nombre, String nombreAlbum, String anio, String duracion,
             String genero, String url) throws DataNotFoundException {
-        resultado = arbolBinario.busquedaOPrimer(nombre, nombreAlbum, anio, duracion, genero, url, resultado);
+        resultado = arbolBinario.busquedaYPrimer(nombre, nombreAlbum, anio, duracion, genero, url, resultado);
         Busqueda busquedaDerecha = new Busqueda(new ArbolBinario(arbolBinario.getNodo().nodoDerecho), accionY, nombre,
                 nombreAlbum, anio, duracion, genero, url);
         Busqueda busquedaIzquierda = new Busqueda(new ArbolBinario(arbolBinario.getNodo().nodoIzquierdo), accionY,
@@ -193,31 +173,15 @@ public class Singleton {
     public void agregarCancion(String nombreArtista, String nombre, String nombreAlbum, String caratula, int anio,
             String duracion,
             String genero, String url) throws DataNotFoundException {
-        this.cancionAccion = this.arbolBinario.agregarCancion(nombreArtista, nombre, nombreAlbum, caratula, anio,
+        this.arbolBinario.agregarCancion(nombreArtista, nombre, nombreAlbum, caratula, anio,
                 duracion, genero, url);
         this.nombreArtista = nombreArtista;
-        this.accion = "Agregar";
         guardarArbol();
     }
 
     public void eliminarCancion(String nombreArtista, String nombre) throws DataNotFoundException {
-        this.cancionAccion = this.arbolBinario.eliminarCancion(nombreArtista, nombre);
+        this.arbolBinario.eliminarCancion(nombreArtista, nombre);
         this.nombreArtista = nombreArtista;
-        this.accion = "Eliminar";
-        guardarArbol();
-    }
-
-    public void deshacer() throws DataNotFoundException {
-        if (accion.equals("Agregar")) {
-            this.arbolBinario.eliminarCancion(nombreArtista, cancionAccion.getNombre());
-            this.accion = "Eliminar";
-        }
-        if (accion.equals("Eliminar")) {
-            this.arbolBinario.agregarCancion(nombreArtista, cancionAccion.getNombre(), cancionAccion.getNombreAlbum(),
-                    cancionAccion.getCaratula(), cancionAccion.getAnio(), cancionAccion.getDuracion().toString(),
-                    cancionAccion.getGenero(), cancionAccion.getUrl());
-            this.accion = "Agregar";
-        }
         guardarArbol();
     }
 

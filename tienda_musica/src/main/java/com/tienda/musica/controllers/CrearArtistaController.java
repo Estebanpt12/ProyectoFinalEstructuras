@@ -51,7 +51,7 @@ public class CrearArtistaController {
                 URL url = new File("src/main/resources/com/tienda/musica/MainView.fxml")
                         .toURI().toURL();
                 Parent root1 = FXMLLoader.load(url);
-                Scene scene1 = new Scene(root1, 950, 578);
+                Scene scene1 = new Scene(root1, 991, 578);
                 Stage stage1 = new Stage();
                 stage1.setTitle("Agregar Artista");
                 stage1.setScene(scene1);
