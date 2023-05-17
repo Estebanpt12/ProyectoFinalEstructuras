@@ -1,0 +1,66 @@
+.buscar-box{
+	-fx-background-color:#FFFFFF;
+	-fx-background-radius: 100;
+}
+
+.transparent{
+	-fx-background-color: rgba(0,0,0,0);
+}
+
+.buscar-button{
+	-fx-background-color: #828282;
+	-fx-background-radius: 30;
+}
+
+.right-bar{
+	-fx-background-color: #D3D3D3;
+}
+
+.shadow{
+	-fx-effect: dropShadow(three-pass-box,rbg(0,0,0,0,1), 10.0 , 0.0 , 0.0 ,10.0);
+}
+
+.sumar-subasta{
+	-fx-background-color: #820263;
+	-fx-background-radius: 30;
+}
+
+.comoBox{
+	-fx-background-color: rgba(255,255,255,0.3);
+	-fx-background-radius: 30;
+}
+
+.aumentar-button{
+	-fx-background-color: #FFFFFF;
+	-fx-background-radius: 100;
+}
+
+.venta-item{
+	-fx-background-color: #FFFFFF;
+	-fx-background-radius: 30;
+	
+}
+
+
+
+.right-bar-loggin{
+	-fx-background-color: #D3D3D3;
+	-fx-background-radius: 100;
+}
+
+.buscar-button-loggin{
+	-fx-background-color: #828282;
+	-fx-background-radius: 30;
+}
+
+.registrar-persona{
+	-fx-background-color: #457b9d;
+	-fx-background-radius: 30;
+}
+
+
+
+.aumentar-button-cliente{
+	-fx-background-color: #2e7775;
+	-fx-background-radius: 100;
+}

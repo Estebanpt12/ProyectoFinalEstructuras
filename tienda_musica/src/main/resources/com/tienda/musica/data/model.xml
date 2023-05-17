@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="11.0.16" class="java.beans.XMLDecoder">
+ <object class="com.tienda.musica.model.ArbolBinario" id="ArbolBinario0">
+  <void property="cancionAgregada">
+   <object class="com.tienda.musica.model.Cancion" id="Cancion0">
+    <void property="anio">
+     <int>1995</int>
+    </void>
+    <void property="caratula">
+     <string>C:\Users\youaz\OneDrive\Documentos\U\Estructuras\ProyectoFinalEstructuras\tienda_musica\src\main\resources\com\tienda\musica\4.jpg</string>
+    </void>
+    <void property="codigo">
+     <string>1</string>
+    </void>
+    <void property="duracion">
+     <string>03:26</string>
+    </void>
+    <void property="genero">
+     <string>Pop</string>
+    </void>
+    <void property="nombre">
+     <string>Smooth Criminal</string>
+    </void>
+    <void property="nombreAlbum">
+     <string>Smooth Criminal</string>
+    </void>
+    <void property="url">
+     <string>youtube.com</string>
+    </void>
+   </object>
+  </void>
+  <void property="cancionEliminada">
+   <object class="com.tienda.musica.model.Cancion">
+    <void property="anio">
+     <int>1990</int>
+    </void>
+    <void property="caratula">
+     <string>C:\Users\youaz\OneDrive\Documentos\U\Estructuras\ProyectoFinalEstructuras\tienda_musica\src\main\resources\com\tienda\musica\4.jpg</string>
+    </void>
+    <void property="codigo">
+     <string>1</string>
+    </void>
+    <void property="duracion">
+     <string>04:25</string>
+    </void>
+    <void property="genero">
+     <string>Rock</string>
+    </void>
+    <void property="nombre">
+     <string>We will rock you</string>
+    </void>
+    <void property="nombreAlbum">
+     <string>We will rock you</string>
+    </void>
+    <void property="url">
+     <string>www.youtube.com</string>
+    </void>
+   </object>
+  </void>
+  <void property="cancionesEncontradas">
+   <void method="add">
+    <object class="com.tienda.musica.controllers.modelTable.ModelTable">
+     <void property="anio">
+      <int>1989</int>
+     </void>
+     <void property="autor">
+      <string>Michael Jackson</string>
+     </void>
+     <void property="caratula">
+      <string>C:\Users\youaz\OneDrive\Documentos\U\Estructuras\ProyectoFinalEstructuras\tienda_musica\src\main\resources\com\tienda\musica\3.jpg</string>
+     </void>
+     <void property="duracion">
+      <string>03:00</string>
+     </void>
+     <void property="genero">
+      <string>Pop</string>
+     </void>
+     <void property="nombre">
+      <string>Beat it</string>
+     </void>
+     <void property="nombreAlbum">
+      <string>Beat it</string>
+     </void>
+     <void property="url">
+      <string>youtube.com</string>
+     </void>
+    </object>
+   </void>
+  </void>
+  <void property="nodo">
+   <object class="com.tienda.musica.model.nodos.NodoArbol" id="NodoArbol0">
+    <void class="com.tienda.musica.model.nodos.NodoArbol" method="getField">
+     <string>artista</string>
+     <void method="set">
+      <object idref="NodoArbol0"/>
+      <object class="com.tienda.musica.model.Artista">
+       <void property="listaCanciones">
+        <object class="com.tienda.musica.model.lists.ListaDoblementeEnlazadaCanciones">
+         <void property="raiz">
+          <object class="com.tienda.musica.model.nodos.NodoListadoble" id="NodoListadoble0">
+           <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+            <string>info</string>
+            <void method="set">
+             <object idref="NodoListadoble0"/>
+             <object class="com.tienda.musica.model.Cancion">
+              <void property="anio">
+               <int>1990</int>
+              </void>
+              <void property="caratula">
+               <string>C:\Users\youaz\OneDrive\Documentos\U\Estructuras\ProyectoFinalEstructuras\tienda_musica\src\main\resources\com\tienda\musica\1.jpg</string>
+              </void>
+              <void property="codigo">
+               <string>1</string>
+              </void>
+              <void property="duracion">
+               <string>04:25</string>
+              </void>
+              <void property="genero">
+               <string>Rock</string>
+              </void>
+              <void property="nombre">
+               <string>We will rock you</string>
+              </void>
+              <void property="nombreAlbum">
+               <string>We will rock you</string>
+              </void>
+              <void property="url">
+               <string>www.youtube.com</string>
+              </void>
+             </object>
+            </void>
+           </void>
+           <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+            <string>sig</string>
+            <void method="set">
+             <object idref="NodoListadoble0"/>
+             <object class="com.tienda.musica.model.nodos.NodoListadoble" id="NodoListadoble1">
+              <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+               <string>info</string>
+               <void method="set">
+                <object idref="NodoListadoble1"/>
+                <object class="com.tienda.musica.model.Cancion">
+                 <void property="anio">
+                  <int>1955</int>
+                 </void>
+                 <void property="caratula">
+                  <string>C:\Users\youaz\OneDrive\Documentos\U\Estructuras\ProyectoFinalEstructuras\tienda_musica\src\main\resources\com\tienda\musica\1.jpg</string>
+                 </void>
+                 <void property="codigo">
+                  <string>1</string>
+                 </void>
+                 <void property="duracion">
+                  <string>03:25</string>
+                 </void>
+                 <void property="genero">
+                  <string>Pop</string>
+                 </void>
+                 <void property="nombre">
+                  <string>I want to break free</string>
+                 </void>
+                 <void property="nombreAlbum">
+                  <string>I want to break free</string>
+                 </void>
+                 <void property="url">
+                  <string>youtube.com</string>
+                 </void>
+                </object>
+               </void>
+              </void>
+              <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+               <string>ant</string>
+               <void method="set">
+                <object idref="NodoListadoble1"/>
+                <object idref="NodoListadoble0"/>
+               </void>
+              </void>
+             </object>
+            </void>
+           </void>
+          </object>
+         </void>
+        </object>
+       </void>
+       <void property="nacionalidad">
+        <string>USA</string>
+       </void>
+       <void property="nombre">
+        <string>Queen</string>
+       </void>
+       <void property="sizeCanciones">
+        <int>1</int>
+       </void>
+      </object>
+     </void>
+    </void>
+    <void class="com.tienda.musica.model.nodos.NodoArbol" method="getField">
+     <string>nodoDerecho</string>
+     <void method="set">
+      <object idref="NodoArbol0"/>
+      <object class="com.tienda.musica.model.nodos.NodoArbol" id="NodoArbol1">
+       <void class="com.tienda.musica.model.nodos.NodoArbol" method="getField">
+        <string>artista</string>
+        <void method="set">
+         <object idref="NodoArbol1"/>
+         <object class="com.tienda.musica.model.Artista">
+          <void property="codigo">
+           <int>1</int>
+          </void>
+          <void property="esArtista">
+           <boolean>true</boolean>
+          </void>
+          <void property="listaCanciones">
+           <object class="com.tienda.musica.model.lists.ListaDoblementeEnlazadaCanciones">
+            <void property="raiz">
+             <object class="com.tienda.musica.model.nodos.NodoListadoble" id="NodoListadoble2">
+              <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+               <string>info</string>
+               <void method="set">
+                <object idref="NodoListadoble2"/>
+                <object class="com.tienda.musica.model.Cancion">
+                 <void property="anio">
+                  <int>1989</int>
+                 </void>
+                 <void property="caratula">
+                  <string>C:\Users\youaz\OneDrive\Documentos\U\Estructuras\ProyectoFinalEstructuras\tienda_musica\src\main\resources\com\tienda\musica\3.jpg</string>
+                 </void>
+                 <void property="codigo">
+                  <string>1</string>
+                 </void>
+                 <void property="duracion">
+                  <string>03:00</string>
+                 </void>
+                 <void property="genero">
+                  <string>Pop</string>
+                 </void>
+                 <void property="nombre">
+                  <string>Beat it</string>
+                 </void>
+                 <void property="nombreAlbum">
+                  <string>Beat it</string>
+                 </void>
+                 <void property="url">
+                  <string>youtube.com</string>
+                 </void>
+                </object>
+               </void>
+              </void>
+              <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+               <string>sig</string>
+               <void method="set">
+                <object idref="NodoListadoble2"/>
+                <object class="com.tienda.musica.model.nodos.NodoListadoble" id="NodoListadoble3">
+                 <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+                  <string>info</string>
+                  <void method="set">
+                   <object idref="NodoListadoble3"/>
+                   <object class="com.tienda.musica.model.Cancion">
+                    <void property="anio">
+                     <int>1990</int>
+                    </void>
+                    <void property="caratula">
+                     <string>C:\Users\youaz\OneDrive\Documentos\U\Estructuras\ProyectoFinalEstructuras\tienda_musica\src\main\resources\com\tienda\musica\2.jpeg</string>
+                    </void>
+                    <void property="codigo">
+                     <string>1</string>
+                    </void>
+                    <void property="duracion">
+                     <string>03:00</string>
+                    </void>
+                    <void property="genero">
+                     <string>Punk</string>
+                    </void>
+                    <void property="nombre">
+                     <string>Thriller</string>
+                    </void>
+                    <void property="nombreAlbum">
+                     <string>Thriller</string>
+                    </void>
+                    <void property="url">
+                     <string>youtube.com</string>
+                    </void>
+                   </object>
+                  </void>
+                 </void>
+                 <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+                  <string>ant</string>
+                  <void method="set">
+                   <object idref="NodoListadoble3"/>
+                   <object idref="NodoListadoble2"/>
+                  </void>
+                 </void>
+                 <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+                  <string>sig</string>
+                  <void method="set">
+                   <object idref="NodoListadoble3"/>
+                   <object class="com.tienda.musica.model.nodos.NodoListadoble" id="NodoListadoble4">
+                    <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+                     <string>info</string>
+                     <void method="set">
+                      <object idref="NodoListadoble4"/>
+                      <object idref="Cancion0"/>
+                     </void>
+                    </void>
+                    <void class="com.tienda.musica.model.nodos.NodoListadoble" method="getField">
+                     <string>ant</string>
+                     <void method="set">
+                      <object idref="NodoListadoble4"/>
+                      <object idref="NodoListadoble3"/>
+                     </void>
+                    </void>
+                   </object>
+                  </void>
+                 </void>
+                </object>
+               </void>
+              </void>
+             </object>
+            </void>
+           </object>
+          </void>
+          <void property="nacionalidad">
+           <string>Michael Jackson</string>
+          </void>
+          <void property="nombre">
+           <string>Michael Jackson</string>
+          </void>
+          <void property="sizeCanciones">
+           <int>1</int>
+          </void>
+         </object>
+        </void>
+       </void>
+      </object>
+     </void>
+    </void>
+   </object>
+  </void>
+  <void property="size">
+   <int>2</int>
+  </void>
+ </object>
+</java>

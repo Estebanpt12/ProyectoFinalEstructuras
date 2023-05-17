@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="578.0" prefWidth="991.0" style="-fx-background-color: #eef2f7;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tienda.musica.controllers.MainViewController">
+   <children>
+      <TableView fx:id="tableCanciones" layoutX="14.0" layoutY="49.0" prefHeight="509.0" prefWidth="733.0" style="-fx-background-color: transparent;">
+        <columns>
+          <TableColumn fx:id="nombreColumn" prefWidth="130.870849609375" text="Nombre" />
+          <TableColumn fx:id="albumColumn" prefWidth="89.91131591796875" text="Album" />
+            <TableColumn fx:id="anioColumn" prefWidth="75.0" text="Año Publicacion" />
+            <TableColumn fx:id="duracionColumn" prefWidth="75.0" text="Duracion" />
+            <TableColumn fx:id="generoColumn" prefWidth="75.0" text="Genero" />
+            <TableColumn fx:id="urlColumn" prefWidth="165.0" text="URL" />
+            <TableColumn fx:id="autorColumn" prefWidth="121.0" text="Autor" />
+        </columns>
+      </TableView>
+      <Button fx:id="limpiarButton" layoutX="611.0" layoutY="14.0" mnemonicParsing="false" onAction="#actionLimpiar" prefHeight="20.0" prefWidth="127.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Limpiar Filtros" textFill="#544aff">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+         <styleClass>
+            <String fx:value="buscar-box" />
+            <String fx:value="buscar-button-loggin" />
+         </styleClass></Button>
+      <Separator layoutX="766.0" layoutY="14.0" orientation="VERTICAL" prefHeight="546.0" prefWidth="9.0">
+         <cursor>
+            <Cursor fx:constant="CROSSHAIR" />
+         </cursor>
+         <effect>
+            <Lighting>
+               <bumpInput>
+                  <Shadow />
+               </bumpInput>
+               <light>
+                  <Light.Distant />
+               </light>
+            </Lighting>
+         </effect>
+      </Separator>
+      <AnchorPane layoutX="780.0" layoutY="31.0" prefHeight="477.0" prefWidth="200.0" style="-fx-background-color: #0FA3B1; -fx-background-radius: 80;">
+         <children>
+            <Button fx:id="agregarArtistaButton" layoutX="19.0" layoutY="248.0" mnemonicParsing="false" onAction="#onActionAgregarArtista" opacity="0.84" prefHeight="38.0" prefWidth="166.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Agregar Artista" textFill="#544aff">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="buscar-box" />
+                  <String fx:value="buscar-button-loggin" />
+               </styleClass>
+               <effect>
+                  <Glow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="eliminarButton" layoutX="40.0" layoutY="306.0" mnemonicParsing="false" onAction="#onActionEliminar" opacity="0.84" prefHeight="37.0" prefWidth="125.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Eliminar" textFill="#544aff">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="buscar-box" />
+                  <String fx:value="buscar-button-loggin" />
+               </styleClass>
+               <effect>
+                  <Glow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <TextField fx:id="textFieldBuscar" layoutY="54.0" onKeyTyped="#onKeyTypedFiltro" prefHeight="37.0" prefWidth="207.0" promptText="Filtrar Artista" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
+            <Button fx:id="agregarCancionButton" layoutX="20.0" layoutY="200.0" mnemonicParsing="false" onAction="#onActionAgregarCancion" opacity="0.84" prefHeight="38.0" prefWidth="166.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Agregar Cancion" textFill="#544aff">
+               <font>
+                  <Font name="System Bold Italic" size="16.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="buscar-box" />
+                  <String fx:value="buscar-button-loggin" />
+               </styleClass>
+               <effect>
+                  <Glow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <Button fx:id="busquedaButton" layoutX="20.0" layoutY="152.0" mnemonicParsing="false" onAction="#onActionBusqueda" opacity="0.84" prefHeight="38.0" prefWidth="167.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Busqueda Avanzada" textFill="#544aff">
+               <font>
+                  <Font name="System Bold Italic" size="15.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="buscar-box" />
+                  <String fx:value="buscar-button-loggin" />
+               </styleClass>
+               <effect>
+                  <Glow />
+               </effect>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

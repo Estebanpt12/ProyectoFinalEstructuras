@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="490.0" prefWidth="481.0" style="-fx-background-color: #eef2f7;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.tienda.musica.controllers.AgregarCancionController">
+   <children>
+      <TextField fx:id="fieldCancion" layoutX="274.0" layoutY="104.0" prefHeight="35.0" prefWidth="152.0" promptText="Nombre de cancion" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
+      <TextField fx:id="fieldAlbum" layoutX="274.0" layoutY="163.0" prefHeight="35.0" prefWidth="152.0" promptText="Nombre del album" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
+      <Button fx:id="agregarButton" layoutX="186.0" layoutY="439.0" mnemonicParsing="false" onAction="#onActionAgregar" opacity="0.84" prefHeight="43.0" prefWidth="109.0" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Agregar" textFill="#544aff">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+         <styleClass>
+            <String fx:value="buscar-box" />
+            <String fx:value="buscar-button-loggin" />
+         </styleClass>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect>
+      </Button>
+      <TextField fx:id="fieldUrl" layoutX="54.0" layoutY="163.0" prefHeight="35.0" prefWidth="151.0" promptText="Url Youtube" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
+      <TextField fx:id="fieldAnio" layoutX="54.0" layoutY="223.0" prefHeight="35.0" prefWidth="151.0" promptText="Año" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
+      <TextField fx:id="fieldDuracion" layoutX="274.0" layoutY="223.0" prefHeight="35.0" prefWidth="152.0" promptText="Duracion" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
+      <Button fx:id="seleccionarCaratulaButton" layoutX="273.0" layoutY="282.0" mnemonicParsing="false" onAction="#onActionSeleccionarCaratula" prefHeight="35.0" prefWidth="152.0" style="-fx-background-radius: 10;" styleClass="right-bar" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" text="Seleccionar Caratula">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </Button>
+      <Text fx:id="textCaratula" layoutX="274.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="150.85115587506561" />
+      <TextField fx:id="fieldArtista" layoutX="54.0" layoutY="104.0" prefHeight="35.0" prefWidth="152.0" promptText="Nombre de artista" style="-fx-background-radius: 10;" styleClass="venta-item" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css" />
+      <ComboBox fx:id="comboGenero" layoutX="48.0" layoutY="282.0" prefHeight="35.0" prefWidth="154.0" promptText="Genero" style="-fx-background-radius: 10;" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css">
+         <styleClass>
+            <String fx:value="comoBox" />
+            <String fx:value="venta-item" />
+         </styleClass></ComboBox>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="14.0" prefHeight="74.0" prefWidth="451.0" styleClass="registrar-persona" stylesheets="@../../../../java/com/tienda/musica/diseñoCSS/ventanaVentas.css">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Agregar nuevas pistas" textAlignment="CENTER" wrappingWidth="453.2000093460083">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
